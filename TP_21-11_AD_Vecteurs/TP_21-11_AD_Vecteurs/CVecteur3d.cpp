@@ -12,11 +12,38 @@ CVecteur3d::CVecteur3d(float fX, float fY, float fZ) {
 	this->fZ = fZ;
 }
 
-void CVecteur3d::init(float fX, float fY, float fZ) {
-	this->fX = fX;
-	this->fY = fY;
-	this->fZ = fZ;
+CVecteur3d::~CVecteur3d()
+{
 }
+
+bool CVecteur3d::coincide_V(CVecteur3d Vec2) {
+	if (this->fX == Vec2.fX && this->fY == Vec2.fY && this->fZ == Vec2.fZ) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool CVecteur3d::coincide_A(CVecteur3d* Vec2) {
+	if (this->fX == Vec2->fX && this->fY == Vec2->fY && this->fZ == Vec2->fZ) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool CVecteur3d::coincide_R(CVecteur3d& Vec2) {
+	if (this->fX == Vec2.fX && this->fY == Vec2.fY && this->fZ == Vec2.fZ) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+
 
 
 float CVecteur3d::getfX() {

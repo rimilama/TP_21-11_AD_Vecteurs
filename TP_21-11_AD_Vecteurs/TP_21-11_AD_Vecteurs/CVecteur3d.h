@@ -9,11 +9,15 @@ private:
 public:
 	//Constructeur
 	CVecteur3d();
-	CVecteur3d(float fX, float fY, float fZ);
-	//CVecteur3d(float fX = 0.0, float fY = 0.0, float fZ = 0.0) : fX(fX), fY(fY), fZ(fZ) {}
+	CVecteur3d(float, float, float);
+
+	//Destructeur
+	~CVecteur3d();
 
 	//Methode
-	void init(float, float, float);
+	bool coincide_V(CVecteur3d);
+	bool coincide_A(CVecteur3d*);
+	bool coincide_R(CVecteur3d&);
 
 	//Getteur & setteur
 	float getfX();
