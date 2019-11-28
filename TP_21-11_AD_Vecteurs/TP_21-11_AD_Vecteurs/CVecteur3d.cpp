@@ -1,4 +1,5 @@
 #include "CVecteur3d.h"
+#include <math.h>
 
 CVecteur3d::CVecteur3d() {
 	this->fX = 0;
@@ -43,8 +44,37 @@ bool CVecteur3d::coincide_R(CVecteur3d& Vec2) {
 	}
 }
 
+float CVecteur3d::normax_V(CVecteur3d Vec2) {
+	float norme1 = sqrt(pow(this->fX, 2) + pow(this->fY, 2) + pow(this->fZ, 2));
+	float norme2 = sqrt(pow(Vec2.fX, 2) + pow(Vec2.fY, 2) + pow(Vec2.fZ, 2));
+	if (norme1 > norme2) {
+		return norme1;
+	}
+	else {
+		return norme2;
+	}
+}
 
+float* CVecteur3d::normax_A(CVecteur3d* Vec2) {
+	float norme1 = sqrt(pow(this->fX, 2) + pow(this->fY, 2) + pow(this->fZ, 2));
+	float norme2 = sqrt(pow(Vec2->fX, 2) + pow(Vec2->fY, 2) + pow(Vec2->fZ, 2));
+	if (norme1 > norme2) {
+		return &norme1;
+	}else {
+		return &norme2;
+	}
+}
 
+float& CVecteur3d::normax_R(CVecteur3d& Vec2) {
+	float norme1 = sqrt(pow(this->fX, 2) + pow(this->fY, 2) + pow(this->fZ, 2));
+	float norme2 = sqrt(pow(Vec2.fX, 2) + pow(Vec2.fY, 2) + pow(Vec2.fZ, 2));
+	if (norme1 > norme2) {
+		return norme1;
+	}
+	else {
+		return norme2;
+	}
+}
 
 float CVecteur3d::getfX() {
 	return fX;
